@@ -24,11 +24,62 @@
 </nav>
 @yield('content')
 </body>
-
-
+<div>
+<div class="container"><br/><br/>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <h1 class="card-header text-center">Rekomendacja</h1>
+            </div>
+        </div>
+    </div>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form" id="place_id" name="place_id" value="" >
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form" id="place_name" name="place_name" value="" >
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form" id="place_type" name="place_type" >
+                        </div>
+                        <div class="form-group">
+                            <label for="names"></label>
+                            <input type="text" name="names" id="names" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname"></label>
+                            <input type="text" name="lastname" id="lastname" class="form-control"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"></label>
+                            <input type="email" name="email" id="email" class="form-control"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"></label>
+                            <input type="tel" name="phone" id="phone" class="form-control"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkin"></label>
+                            <input type="date" name="checkin" id="checkin" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout"></label>
+                            <input type="date" name="checkout" id="checkout" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form" id="pricess" name="pricess" >
+                        </div>
+                        <button type="submit" class="btn btn-primary"></button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</html>
+</div>
+</div>
