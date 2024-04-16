@@ -39,42 +39,22 @@
             <div class="card">
                 <div class="card-body">
                         <div class="form-group">
-                            <input type="hidden" class="form" id="place_id" name="place_id" value="" >
+                            <label for="names">Preferowany klimat?</label>
+                            <input type="text" name="" id="" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" class="form" id="place_name" name="place_name" value="" >
+                            <label for="lastname">Jakiego rodzaju atrakcje są dla Ciebie najważniejsze?</label>
+                            <input type="text" name="" id="" class="form-control"  required>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" class="form" id="place_type" name="place_type" >
+                            <label for="email">Aktywności w czasie podróży?</label>
+                            <input type="text" name="" id="" class="form-control"  required>
                         </div>
                         <div class="form-group">
-                            <label for="names"></label>
-                            <input type="text" name="names" id="names" class="form-control" required>
+                            <label for="phone">Jaki jest Twój budżet podróży?</label>
+                            <input type="text" name="" id="" class="form-control"  required>
                         </div>
-                        <div class="form-group">
-                            <label for="lastname"></label>
-                            <input type="text" name="lastname" id="lastname" class="form-control"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email"></label>
-                            <input type="email" name="email" id="email" class="form-control"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone"></label>
-                            <input type="tel" name="phone" id="phone" class="form-control"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="checkin"></label>
-                            <input type="date" name="checkin" id="checkin" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="checkout"></label>
-                            <input type="date" name="checkout" id="checkout" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="hidden" class="form" id="pricess" name="pricess" >
-                        </div>
-                        <button type="submit" class="btn btn-primary"></button>
+                        <button type="submit" class="btn btn-primary">Rekomenduj podróż</button>
                     </form>
                 </div>
             </div>
