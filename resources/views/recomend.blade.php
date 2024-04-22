@@ -59,7 +59,7 @@
 
 {{--                            </select>--}}
                         </div>
-                        </div>
+
 {{--                        <div class="form-group">--}}
 {{--                            <label for="email">Aktywności w czasie podróży?</label>--}}
 {{--                            <input type="text" name="" id="" class="form-control"  required>--}}
@@ -73,6 +73,7 @@
                                 <option>Wysoki</option>
                             </select>
                         </div>
+                </div>
                         <button type="submit" class="btn btn-primary">Rekomenduj podróż</button>
                     </form>
                 </div>
