@@ -39,20 +39,39 @@
             <div class="card">
                 <div class="card-body">
                         <div class="form-group">
-                            <label for="names">Preferowany klimat?</label>
-                            <input type="text" name="" id="" class="form-control" required>
+                            <label for="text">Preferowany klimat?</label>
+                            <select class="form-select" id="room_type" name="room_type">
+                                <option> </option>
+                                <option>10-15°C</option>
+                                <option>15-19°C</option>
+                                <option>20-25°C</option>
+                                <option>25-30°C</option>
+                                <option>30°C-...</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="lastname">Jakiego rodzaju atrakcje są dla Ciebie najważniejsze?</label>
-                            <input type="text" name="" id="" class="form-control"  required>
+                            <label for="text">Jakiego rodzaju atrakcje są dla Ciebie najważniejsze?</label>
+                            <input type="text" name="" id="" class="form-control">
+{{--                            <select class="form-select" id="room_type" name="room_type">--}}
+{{--                                <option> </option>--}}
+{{--                                <option>Zwiedzanie</option>--}}
+{{--                                <option>Wędrówki</option>--}}
+
+{{--                            </select>--}}
                         </div>
-                        <div class="form-group">
-                            <label for="email">Aktywności w czasie podróży?</label>
-                            <input type="text" name="" id="" class="form-control"  required>
                         </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="email">Aktywności w czasie podróży?</label>--}}
+{{--                            <input type="text" name="" id="" class="form-control"  required>--}}
+{{--                        </div>--}}
                         <div class="form-group">
-                            <label for="phone">Jaki jest Twój budżet podróży?</label>
-                            <input type="text" name="" id="" class="form-control"  required>
+                            <label for="text">Jaki jest Twój budżet podróży?</label>
+                            <select class="form-select" id="room_type" name="room_type">
+                                <option> </option>
+                                <option>Niski</option>
+                                <option>Średni</option>
+                                <option>Wysoki</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Rekomenduj podróż</button>
                     </form>
