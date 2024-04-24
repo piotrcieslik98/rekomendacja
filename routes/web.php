@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('recomend');
-});
+
+
+Route::get('/', [Controller::class, 'showRecommendationForm'])->name('recommendation.form');
+Route::post('/recomend', [Controller::class, 'recommendCountry'])->name('recommendation.process');
+
