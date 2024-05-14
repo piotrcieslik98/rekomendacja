@@ -40,12 +40,13 @@
                         </div>
                         <div class="form-group">
                             <label for="recommended_activities">Jakiego rodzaju atrakcje są dla Ciebie najważniejsze?</label>
-                            <select class="form-select" id="recommended_activities" name="recommended_activities">
-                                <option> </option>
-                                @foreach($activities as $activity)
-                                    <option value="{{ $activity }}">{{ $activity }}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" name="recommended_activities" class="form-control" >
+{{--                            <select class="form-select" id="recommended_activities" name="recommended_activities">--}}
+{{--                                <option> </option>--}}
+{{--                                @foreach($activities as $activity)--}}
+{{--                                    <option value="{{ $activity }}">{{ $activity }}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
                         </div>
 
                         <div class="form-group">
@@ -65,6 +66,7 @@
                 <div class="form-group">
                     <label for="recommended_country">Rekomendowany kraj podróży:</label>
                     <input type="text" class="form-control" id="recommended_country" name="recommended_country" value="{{ $recommendedCountry->country_name }}" readonly>
+                    <input type="text" class="form-control" id="recommended_country" name="recommended_country" value="Przykładowe atrakcje: {{$recommendedCountry->tourist_attractions}}" readonly>
                 </div>
             @endif
 
