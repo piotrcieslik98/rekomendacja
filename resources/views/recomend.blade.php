@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rekomendacja podróży</title>
+    <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="background-color: #F3F3F4">
@@ -66,8 +66,8 @@
                 <div class="form-group">
                     <label for="recommended_country">Rekomendowany kraj podróży:</label>
                     <input type="text" class="form-control" id="recommended_country" name="recommended_country" value="{{ $recommendedCountry->country_name }}" readonly>
-                    <input type="text" class="form-control" id="recommended_country" name="recommended_country" value="Przykładowe atrakcje: {{$recommendedCountry->tourist_attractions}}" readonly>
                 </div>
+
             @endif
 
         </div>
