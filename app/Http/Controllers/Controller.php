@@ -92,4 +92,5 @@ class Controller extends BaseController
 
         return $score;
     }
+
 }

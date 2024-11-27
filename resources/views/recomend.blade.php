@@ -16,6 +16,9 @@
             <ul class="navbar-nav">
                 @guest
                 @endguest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('contact.form')}}">Kontakt</a>
+                    </li>
             </ul>
         </div>
     </div>
