@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Country;
 use App\Models\Result;
+use Illuminate\Support\Facades\Mail;
 
 class Controller extends BaseController
 {
@@ -31,10 +32,18 @@ class Controller extends BaseController
 
     public function recommendCountry(Request $request)
     {
+        $request->validate([
+            'climate' => 'required|string',
+            'recommended_activities' => 'required|string',
+            'budget' => 'required|string',
+            'email' => 'required|email',
+        ]);
+
         // Pobierz dane z formularza
         $weather = $request->input('climate');
         $attractions = $request->input('recommended_activities');
         $prices = $request->input('budget');
+        $email = $request->input('email');
 
         // Przypisz wagi do kryteriów
         $weatherWeight = 0.4;
@@ -58,17 +67,26 @@ class Controller extends BaseController
         // Zapisz wynik w tabeli `results`
         if ($recommendedCountry) {
             Result::create([
-                'user_id' => auth()->id(), // jeżeli używasz autoryzacji użytkowników
-                'recommended_country' => $recommendedCountry->country_name, // Upewnij się, że `country_name` jest prawidłową kolumną
+                'user_id' => auth()->id() ?? null,
+                'recommended_country' => $recommendedCountry->country_name,
                 'weather' => $weather,
                 'recommended_activities' => $attractions,
                 'budget' => $prices,
             ]);
+
+            // Wyślij e-mail
+            Mail::send('emails.recommendation', [
+                'recommendedCountry' => $recommendedCountry->country_name,
+                'weather' => $weather,
+                'attractions' => $attractions,
+                'prices' => $prices,
+            ], function ($message) use ($email) {
+                $message->to($email)
+                    ->subject('Twoja rekomendacja podróży');
+            });
         } else {
             return back()->with('error', 'No country matches the selected criteria.');
         }
-
-
 
         // Pobierz opcje temperatury i aktywności
         $temperatureOptions = Country::select('weather')->distinct()->pluck('weather');

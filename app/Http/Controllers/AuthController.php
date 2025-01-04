@@ -46,8 +46,18 @@ class AuthController extends Controller
      */
     public function showLoginForm()
     {
+        // Generowanie prostego pytania matematycznego
+        $num1 = rand(1, 10);
+        $num2 = rand(1, 10);
+        $captchaAnswer = $num1 + $num2;
+
+        // Przechowywanie odpowiedzi w sesji
+        session(['captcha_answer' => $captchaAnswer]);
+        session(['captcha_question' => "$num1 + $num2"]);
+
         return view('login');
     }
+
 
     /**
      * Obsługa logowania użytkownika.
@@ -57,9 +67,19 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
+            'captcha' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    if ($value != session('captcha_answer')) {
+                        $fail('Wynik działania matematycznego jest niepoprawny.');
+                    }
+                },
+            ],
         ]);
 
         if (Auth::attempt($request->only('email', 'password'))) {
+            // Usuń odpowiedź CAPTCHA po pomyślnym logowaniu
+            session()->forget('captcha_answer');
             return redirect()->route('recommendation.form')->with('success', 'Zalogowano pomyślnie.');
         }
 
@@ -67,6 +87,8 @@ class AuthController extends Controller
             'email' => 'Nieprawidłowy email lub hasło.',
         ]);
     }
+
+
 
     /**
      * Obsługa wylogowania użytkownika.

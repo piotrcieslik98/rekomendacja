@@ -14,49 +14,26 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-{{--        <div class="collapse navbar-collapse" id="navbarNav">--}}
-{{--            <ul class="navbar-nav">--}}
-{{--                @guest--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="{{route('sale.search')}}">Promocje</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link"href="{{route('business')}}">O firmie</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="{{ route('login') }}">Zaloguj się</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="{{ route('register-user') }}">Zarejestruj się</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a style="left: auto" class="nav-link" href="{{ route('place.search') }}">Wyszukaj</a>--}}
-{{--                    </li>--}}
-{{--                @else--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="{{route('useredit')}}">Profil</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a style="left: auto" class="nav-link" href="{{ route('dashboar') }}">Najbliższe rezerwacje</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a style="left: auto" class="nav-link" href="{{ route('reservation') }}">Moje rezerwacje</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="{{route('sale.search')}}">Promocje</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link"href="{{route('business')}}">O firmie</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a style="left: auto" class="nav-link" href="{{ route('place.search') }}">Wyszukaj</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="{{ route('signout') }}">Wyloguj się</a>--}}
-{{--                    </li>--}}
-{{--                @endguest--}}
-{{--            </ul>--}}
-{{--        </div>--}}
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('login')}}">Zaloguj się</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('register')}}">Zarejestruj się</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('contact.form')}}">Kontakt</a>
+                    </li>
+                @else
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}">Wyloguj się</a>
+                    </li>
+                @endguest
+            </ul>
+        </div>
     </div>
 </nav>
 </body>

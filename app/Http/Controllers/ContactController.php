@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -26,12 +27,22 @@ class ContactController extends Controller
         }
 
         // Zapis danych do bazy
-        Contact::create([
+        $contact = Contact::create([
             'email' => $request->email,
             'topic' => $request->topic,
             'message' => $request->message,
         ]);
 
-        return redirect()->back()->with('success', 'Wiadomość została wysłana!');
+        // Wysyłanie e-maila do nadawcy
+        Mail::send('emails.confirmation', [
+            'email' => $contact->email,
+            'topic' => $contact->topic,
+            'messageContent' => $contact->message,
+        ], function ($message) use ($contact) {
+            $message->to($contact->email) // Adres odbiorcy (nadawca)
+            ->subject('Potwierdzenie wysłania wiadomości - ' . $contact->topic);
+        });
+
+        return redirect()->back()->with('success', 'Wiadomość została wysłana! Potwierdzenie zostało wysłane na Twój e-mail.');
     }
 }

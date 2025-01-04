@@ -36,15 +36,17 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'host' => env('MAIL_HOST', 'smtp.poczta.onet.pl'), // Serwer SMTP Onet
+            'port' => env('MAIL_PORT', 465), // Port SSL lub TLS
+            'encryption' => env('MAIL_ENCRYPTION', 'ssl'), // Typ szyfrowania: ssl lub tls
+            'username' => env('MAIL_USERNAME'), // Adres e-mail (np. apartamenty2023@onet.pl)
+            'password' => env('MAIL_PASSWORD'), // Hasło do konta
             'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            'auth_mode' => null,
         ],
+
+
+
 
         'ses' => [
             'transport' => 'ses',
@@ -108,8 +110,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'apartamenty2023@onet.pl'), // Adres nadawcy
+        'name' => env('MAIL_FROM_NAME', 'Apartamenty 2023'), // Nazwa nadawcy
     ],
 
     /*
