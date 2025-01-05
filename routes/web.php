@@ -42,5 +42,13 @@ Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admi
 Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/admin/contact', [AdminController::class, 'showContacts'])->name('admin.contact');
     Route::delete('/contact/{id}', [AdminController::class, 'destroy'])->name('admin.deletecontact');
+    Route::get('/admin/results', [AdminController::class, 'results'])->name('admin.results');
+    Route::delete('/admin/results/{id}', [AdminController::class, 'deleteResult'])->name('admin.deleteresult');
+    Route::get('/admin/countries', [AdminController::class, 'countries'])->name('admin.countries');
+    Route::get('/admin/countries/create', [AdminController::class, 'createCountry'])->name('admin.countries.create');
+    Route::post('/admin/countries', [AdminController::class, 'storeCountry'])->name('admin.countries.store');
+    Route::get('/admin/countries/{id}/edit', [AdminController::class, 'editCountry'])->name('admin.countries.edit');
+    Route::put('/admin/countries/{id}', [AdminController::class, 'updateCountry'])->name('admin.countries.update');
+    Route::delete('/admin/countries/{id}', [AdminController::class, 'deleteCountry'])->name('admin.countries.destroy');
     Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
